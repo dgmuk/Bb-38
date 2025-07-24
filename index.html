@@ -1,1 +1,189 @@
-1
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Упражнение: «Доказательства»</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Исправление для Google Sites */
+        html, body {
+            height: auto !important;
+            min-height: 1px !important;
+            overflow: visible !important; 
+        }
+
+        /* Анимация для плавного появления блоков */
+        .fade-in-item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Интерактивное свечение карточек */
+        .interactive-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(74, 222, 128, 0.2); /* Green glow */
+        }
+        
+        /* Стилизация текстовых полей */
+        .form-textarea {
+            background-color: #374151; border: 1px solid #4b5563;
+            border-radius: 0.5rem; padding: 0.75rem; width: 100%;
+            color: #d1d5db; transition: all 0.2s;
+            min-height: 120px; resize: vertical;
+        }
+        .form-textarea:focus {
+            outline: none; border-color: #2dd4bf;
+            box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.3);
+        }
+
+        /* Стилизация для выбираемых утверждений */
+        .affirmation-card {
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            border: 2px solid #4b5563;
+        }
+        .affirmation-card.selected {
+            border-color: #2dd4bf; /* teal-400 */
+            background-color: #134e4a; /* teal-900/50 */
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <div id="main-container" class="container mx-auto max-w-3xl p-4 sm:p-8">
+        
+        <!-- Заголовок -->
+        <header class="text-center mb-10 fade-in-item">
+            <h1 class="text-3xl sm:text-4xl font-black text-white leading-tight">
+                🧠 Упражнение: "Доказательства"
+            </h1>
+            <p class="mt-4 text-lg text-gray-400">Как переключиться с критики на реальность</p>
+        </header>
+        
+        <!-- Вступительные блоки -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div class="bg-gray-800 rounded-2xl p-6 fade-in-item" style="animation-delay: 100ms;">
+                <h3 class="font-bold text-xl text-white mb-3">🔹 Когда выполнять:</h3>
+                <ul class="list-disc list-inside text-gray-300 space-y-1">
+                    <li>в конце недели (или когда "всё идёт плохо")</li>
+                    <li>если появилось чувство "я мало сделал"</li>
+                    <li>если накатывает желание всё бросить</li>
+                </ul>
+            </div>
+            <div class="bg-gray-800 rounded-2xl p-6 fade-in-item" style="animation-delay: 200ms;">
+                <h3 class="font-bold text-xl text-white mb-3">🔹 Что нужно:</h3>
+                <p class="text-gray-300">📓 Бумага, заметка в телефоне или голосовое сообщение</p>
+                <p class="text-gray-300">⏱ Время: 5–10 минут тишины</p>
+            </div>
+        </div>
+
+        <!-- Блоки с шагами -->
+        <main class="space-y-8">
+            <h2 class="text-3xl font-bold text-center text-white fade-in-item" style="animation-delay: 300ms;">Инструкция (4 шага)</h2>
+            
+            <!-- Шаг 1 -->
+            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 fade-in-item interactive-card" style="animation-delay: 400ms;">
+                <h3 class="font-bold text-2xl text-white mb-4">Шаг 1. Назови 5 действий, которые ты повторяешь последние 7 недель</h3>
+                <p class="text-gray-400 mb-4">Пример:</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">✅ Я готовлю еду дома</span>
+                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">✅ Я тренируюсь 3+ раза в неделю</span>
+                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">✅ Я пью воду</span>
+                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">✅ Я сдаю отчёты</span>
+                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full">✅ Я продолжаю после срыва</span>
+                </div>
+                <textarea class="form-textarea" placeholder="✍️ Запиши свои 5 действий..."></textarea>
+            </div>
+
+            <!-- Шаг 2 -->
+            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 fade-in-item interactive-card" style="animation-delay: 500ms;">
+                <h3 class="font-bold text-2xl text-white mb-4">Шаг 2. Ответь на 3 вопроса</h3>
+                <p class="text-gray-300 mb-4">Напиши хотя бы по 1-2 предложения на каждый вопрос.</p>
+                <div class="space-y-4">
+                    <p class="font-semibold text-lg text-gray-300">1. Что я уже делаю иначе, чем раньше?</p>
+                    <p class="font-semibold text-lg text-gray-300">2. В чём я стал более стабильным?</p>
+                    <p class="font-semibold text-lg text-gray-300">3. Где я проявил сильный характер, даже если был срыв?</p>
+                </div>
+                <textarea class="form-textarea mt-4" placeholder="✍️ Ваши ответы..."></textarea>
+            </div>
+
+            <!-- Шаг 3 -->
+            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 fade-in-item interactive-card" style="animation-delay: 600ms;">
+                <h3 class="font-bold text-2xl text-white mb-4">Шаг 3. Напиши или проговори новую формулировку</h3>
+                <p class="text-gray-300 mb-4">Можешь сформулировать свою - та, которая откликается тебе.</p>
+                <div id="affirmations" class="space-y-3">
+                    <div class="affirmation-card p-4 rounded-lg flex items-center"><span class="flex-1">"Я не стою на месте. Я иду. Я уже другой."</span></div>
+                    <div class="affirmation-card p-4 rounded-lg flex items-center"><span class="flex-1">"Я не идеален, но я устойчив. Я продолжаю."</span></div>
+                    <div class="affirmation-card p-4 rounded-lg flex items-center"><span class="flex-1">"Я меняю не только тело, но и отношение к себе."</span></div>
+                </div>
+            </div>
+
+            <!-- Шаг 4 -->
+            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 fade-in-item interactive-card" style="animation-delay: 700ms;">
+                <h3 class="font-bold text-2xl text-white mb-2">Шаг 4. Повтори через 2 дня</h3>
+                <p class="text-gray-300">Повтори это же упражнение в конце недели, чтобы сравнить свои ощущения. Ты удивишься, как по-другому начнёшь видеть свои действия.</p>
+            </div>
+        </main>
+
+        <!-- Подвал -->
+        <footer class="text-center mt-12 border-t border-gray-700 pt-6">
+            <p class="text-sm text-gray-500">📍 Рекомендовано выполнять 2 раза на неделе. Материал недели 7. Программа Body Balance.</p>
+        </footer>
+
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('main-container');
+            const affirmations = document.querySelectorAll('#affirmations .affirmation-card');
+
+            // Логика для выбора утверждения
+            affirmations.forEach(card => {
+                card.addEventListener('click', () => {
+                    affirmations.forEach(item => item.classList.remove('selected'));
+                    card.classList.add('selected');
+                });
+            });
+            
+            // Исправление высоты для Google Sites
+            if ('ResizeObserver' in window) {
+                const observer = new ResizeObserver(entries => {
+                    if (entries.length > 0) {
+                        const height = entries[0].target.scrollHeight;
+                        document.body.style.height = height + 'px';
+                        document.documentElement.style.height = height + 'px';
+                    }
+                });
+                if (container) {
+                    observer.observe(container);
+                }
+            } else {
+                const resizeFallback = () => {
+                    if(container) document.body.style.height = container.scrollHeight + 'px';
+                };
+                setInterval(resizeFallback, 300);
+                window.addEventListener('resize', resizeFallback);
+            }
+        });
+    </script>
+</body>
+</html>
